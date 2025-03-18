@@ -1,0 +1,16 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#chart {
+    width: 80%;
+    margin: auto;
+}
