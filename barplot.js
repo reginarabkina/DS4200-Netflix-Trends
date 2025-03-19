@@ -13,7 +13,7 @@ agedata.then(function(data) {
         data,
         v => d3.sum(v, d => d.imdb_votes),
         d => d.rating
-    ).map(([rating, imdb_votes]) => ({ rating, imdb_votes }));
+        ).map(([rating, imdb_votes]) => ({ rating, imdb_votes }));
 
     // Sort ratings in standard order
     const ratingOrder = ["G", "PG", "PG-13", "R", "NC-17", "NR", "TV-Y", "TV-Y7", "TV-G", "TV-PG", "TV-14", "TV-MA"];
@@ -26,11 +26,11 @@ agedata.then(function(data) {
 
     // Create the SVG container
     const svg = d3.select("#barplot")
-                .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g")
-                .attr("transform", `translate(${margin.left},${margin.top})`);
+                  .append("svg")
+                  .attr("width", width + margin.left + margin.right)
+                  .attr("height", height + margin.top + margin.bottom)
+                  .append("g")
+                  .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Define X scale (categorical for age rating)
     const x = d3.scaleBand()
@@ -46,62 +46,62 @@ agedata.then(function(data) {
 
     // Add X-axis
     svg.append("g")
-        .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(x))
-        .selectAll("text")
-        .style("text-anchor", "middle");
+       .attr("transform", `translate(0, ${height})`)
+       .call(d3.axisBottom(x))
+       .selectAll("text")
+       .style("text-anchor", "middle");
 
     // Add Y-axis
     svg.append("g")
-        .call(d3.axisLeft(y));
+       .call(d3.axisLeft(y));
 
     // Draw the bars
     svg.selectAll(".bar")
-        .data(groupedData)
-        .enter()
-        .append("rect")
-        .attr("class", "bar")
-        .attr("x", d => x(d.rating))
-        .attr("y", d => y(d.imdb_votes))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.imdb_votes))
-        .attr("fill", "seagreen")
-        .style("stroke", "black")
-        .style("stroke-width", "1px")
-        .on("mouseover", function(event, d) {
+       .data(groupedData)
+       .enter()
+       .append("rect")
+       .attr("class", "bar")
+       .attr("x", d => x(d.rating))
+       .attr("y", d => y(d.imdb_votes))
+       .attr("width", x.bandwidth())
+       .attr("height", d => height - y(d.imdb_votes))
+       .attr("fill", "seagreen")
+       .style("stroke", "black")
+       .style("stroke-width", "1px")
+       .on("mouseover", function(event, d) {
             d3.select(this)
-                .transition()
-                .duration(200)
-                .attr("fill", "cyan");
+              .transition()
+              .duration(200)
+              .attr("fill", "cyan");
         })
-        .on("mouseout", function(event, d) {
+       .on("mouseout", function(event, d) {
             d3.select(this)
-                .transition()
-                .duration(200)
-                .attr("fill", "seagreen");
+              .transition()
+              .duration(200)
+              .attr("fill", "seagreen");
         });
 
     // Add x-axis label
     svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", height + margin.bottom - 10)
-        .style("text-anchor", "middle")
-        .text("Age Rating");
+       .attr("x", width / 2)
+       .attr("y", height + margin.bottom - 10)
+       .style("text-anchor", "middle")
+       .text("Age Rating");
 
     // Add y-axis label
     svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", -margin.left + 20)
-        .attr("x", -height / 2)
-        .style("text-anchor", "middle")
-        .text("Total IMDb Votes");
+       .attr("transform", "rotate(-90)")
+       .attr("y", -margin.left + 20)
+       .attr("x", -height / 2)
+       .style("text-anchor", "middle")
+       .text("Total IMDb Votes");
 
     // Add title
     svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", -20)
-        .style("text-anchor", "middle")
-        .style("font-size", "16px")
-        .style("font-weight", "bold")
-        .text("IMDb Votes by Age Rating");
+       .attr("x", width / 2)
+       .attr("y", -20)
+       .style("text-anchor", "middle")
+       .style("font-size", "16px")
+       .style("font-weight", "bold")
+       .text("IMDb Votes by Age Rating");
 });
