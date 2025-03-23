@@ -1,0 +1,15 @@
+This bar plot shows the number of ratings for each age category in our data set.
+The groups are shown for both movies and tv shows in 
+an order that reflects the increasing maturity level for the content.
+When analyzing this graph, we can see that in general, at higher maturity levels,
+there are a significantly greater number of votes on that content
+relative to the lower maturity levels.
+
+Looking back at the side by side box plots, we saw that for both movies and tv shows, at higher ratings,
+excluding NR and NC-17, the spread of the data is larger. This could
+be due to the fact that way more people are voting on content in those
+maturity level categories. The distributions still do not differ much across
+the age categories, but we have more consistent data with no outliers. 
+This could come from the fact that the target audience watching this content
+is most likely not going on the internet to vote on IMDb, such as a child
+watching something with a TV-Y rating.
