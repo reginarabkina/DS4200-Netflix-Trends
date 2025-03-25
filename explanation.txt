@@ -1,15 +1,34 @@
-This bar plot shows the number of ratings for each age category in our data set.
-The groups are shown for both movies and tv shows in 
-an order that reflects the increasing maturity level for the content.
-When analyzing this graph, we can see that in general, at higher maturity levels,
-there are a significantly greater number of votes on that content
-relative to the lower maturity levels.
+The aim of this section of our analysis 
+is to gain insight into the relationship 
+between the age rating on content and viewer engagement.
 
-Looking back at the side by side box plots, we saw that for both movies and tv shows, at higher ratings,
-excluding NR and NC-17, the spread of the data is larger. This could
-be due to the fact that way more people are voting on content in those
-maturity level categories. The distributions still do not differ much across
-the age categories, but we have more consistent data with no outliers. 
-This could come from the fact that the target audience watching this content
-is most likely not going on the internet to vote on IMDb, such as a child
-watching something with a TV-Y rating.
+The figure is a horizontal bar chart enhanced with color encoding. 
+Each bar represents the average IMDb score of titles within a specific 
+age rating, while the bar color reflects the total number of votes received 
+— one possible measure of popularity.
+
+KEY TAKEAWAYS:
+1. In general, as the level of maturity increases,
+the amount of votes on that level of content is greater.
+This is the case when we look up until the level R.
+NC-17 has significantly less votes than the rest of
+the age ratings due to the age certifications
+being far less popular than the rest listeed.
+
+2. Average score is pretty consistent across the 
+various age certifications, despite the frerquency of votes
+all being greatly different.
+
+3. Content rated TV-Y, TV-Y7, TV-G, and G tend to have 
+fewer total votes and slightly lower average scores. 
+This potentially means less IMDb user engagement with 
+content aimed at very young viewers — perhaps due to 
+IMDb’s adult-skewing user base.
+
+4. NC-17 ratings have a small presence in Netfliix content.
+This category appears with low scores and vote counts, indicating 
+it may represent niche or less mainstream content with 
+little access or appeal.
+
+Next, to get a better picture in case of skewed distributions for each age rating,
+we will use a side-by-side boxplot showing the distributions for the levels.

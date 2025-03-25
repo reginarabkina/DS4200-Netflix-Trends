@@ -8,6 +8,9 @@ agedata.then(function(data) {
       d.imdb_votes = +d.imdb_votes;
       d.imdb_score = +d.imdb_score;
    });
+   
+   // Remove content that has no age rating
+   data = data.filter(d => d.rating !== "NR");
 
    // Define the dimensions and margins for the SVG
    let width = 700, height = 500;
@@ -29,7 +32,7 @@ agedata.then(function(data) {
    ).map(([rating, info]) => ({ rating, ...info }));
 
    // Set order as increasing maturity level
-   let rating_order = ["TV-Y", "TV-Y7", "TV-G", "G", "TV-PG", "PG", "TV-14", "PG-13", "TV-MA", "R", "NC-17", "NR"];
+   let rating_order = ["TV-Y", "TV-Y7", "TV-G", "G", "TV-PG", "PG", "TV-14", "PG-13", "TV-MA", "R", "NC-17"];
    grouped.sort((a, b) => rating_order.indexOf(a.rating) - rating_order.indexOf(b.rating));
 
    // Create the SVG container
