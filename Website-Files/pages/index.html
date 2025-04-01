@@ -15,6 +15,9 @@
 
     <!-- Local script for rendering the barplot -->
     <script defer src="../scripts/d3_barplot.js"></script>
+    
+     <!-- Local script for rendering the barplot -->
+    <script src="../scripts/scatter.js"></script>
 
 </head>
 <body>
@@ -251,6 +254,49 @@
         (by less than a tenth). Without outliers, the projected average ratings would be larger--and 
         probably by a significant amount. 
     </p>
+</section>
+
+ <!-- scatterplot Title Section -->
+ <section id="scatterplot1-title">
+    <h2>IMDb Ratings vs Number of Reviews</h2>
+</section>
+
+<section id="ratings_vs_reviews">
+    <iframe src="../altair/imdb_ratings_vs_reviews.html" width="800" height="500" style="border:none;"></iframe>
+</section>  
+
+<section id="scatterplot1-description">
+    <h3>Correlation between IMDb Rating and Number of Reviews:</h3>
+    <p>
+        The scatterplot reveals a potential relationship between the IMDb rating and the number of reviews (votes) a movie or TV show has received. <br>
+    </p>
+<p>
+        High IMDb Scores with High Reviews: Movies and TV shows with higher ratings often tend to have a larger number of reviews, especially if they are well-known or widely appreciated by the audience. 
+        This indicates that the most popular and highly rated content tends to accumulate more reviews over time. <br>
+    </p>
+
+<p>
+        Lower Reviews with Higher Scores: There may be some content with high IMDb ratings but fewer reviews, possibly indicating niche content, older movies, or shows that were well-received by a smaller audience. <br>
+    </p>
+    <h3>Implications</h3>
+    <p>
+        Audience Engagement and Popularity: A higher number of reviews might correlate with greater audience engagement. Content that generates more reviews could indicate that it is widely discussed, analyzed, or critiqued, 
+        suggesting it is popular or has a passionate fanbase. 
+    </p>
+    <p>
+        Studios and content creators could use this data to assess the level of engagement with their content. For example, if a film or series has a high rating but low votes, it may indicate that 
+        while the content is well-received, it has not reached a large audience or lacks the viral quality that drives more people to review it.
+     </p>
+    
+</section>
+
+<!-- scatterplot Title Section -->
+<section id="scatterplot-title">
+    <h2>SCATTERPLOT</h2>
+</section>
+
+<section id="scatter">
+    <!-- This is where the scatterplot will be rendered by Vega -->
 </section>
 
 </body>
