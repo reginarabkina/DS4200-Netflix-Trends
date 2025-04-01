@@ -1,5 +1,5 @@
 // Load the data
-const agedata = d3.csv("age_data.csv");
+const agedata = d3.csv("../datasets/age_data.csv");
 
 // Once the data is loaded, create the bar plot
 agedata.then(function(data) {
@@ -8,9 +8,6 @@ agedata.then(function(data) {
       d.imdb_votes = +d.imdb_votes;
       d.imdb_score = +d.imdb_score;
    });
-   
-   // Remove content that has no age rating
-   data = data.filter(d => d.rating !== "NR");
 
    // Define the dimensions and margins for the SVG
    let width = 700, height = 500;
@@ -22,7 +19,7 @@ agedata.then(function(data) {
       left:70
    };
 
-   // Group by rating -- get the avg. score and total number of votes
+   // Group by score -- get the avg. score and total number of votes
    let grouped = d3.rollups(
       data,
       v => ({avg_score: d3.mean(v, d => d.imdb_score),
@@ -32,7 +29,7 @@ agedata.then(function(data) {
    ).map(([rating, info]) => ({ rating, ...info }));
 
    // Set order as increasing maturity level
-   let rating_order = ["TV-Y", "TV-Y7", "TV-G", "G", "TV-PG", "PG", "TV-14", "PG-13", "TV-MA", "R", "NC-17"];
+   let rating_order = ["TV-Y", "TV-Y7", "TV-G", "G", "TV-PG", "PG", "TV-14", "PG-13", "TV-MA", "R", "NC-17", "NR"];
    grouped.sort((a, b) => rating_order.indexOf(a.rating) - rating_order.indexOf(b.rating));
 
    // Create the SVG container
@@ -124,7 +121,7 @@ agedata.then(function(data) {
    // Add y axis label
    svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left + 10)
+      .attr("y", -margin.left + 15)
       .attr("x", -height / 2)
       .style("text-anchor", "middle")
       .text("Age Rating");

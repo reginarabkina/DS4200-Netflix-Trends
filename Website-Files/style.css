@@ -1,16 +1,28 @@
-
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
-
-h1 {
-    color: #333;
-}
-
-#chart {
-    width: 80%;
+#boxplot {
+    width: 800px;
+    height: 500px;
     margin: auto;
+}
+
+section {
+    margin: 0;
+    padding: 20px; /* Add padding for spacing within sections */
+}
+
+#boxplot-title, #boxplot, #boxplot-description {
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+
+/* Optional: If you want to add some spacing between sections */
+#boxplot-description {
+    padding-top: 10px; /* Reduce padding at the top of description */
+}
+
+/* Optional: If you want to remove top margin on the header */
+header {
+    margin-bottom: 0;
 }
