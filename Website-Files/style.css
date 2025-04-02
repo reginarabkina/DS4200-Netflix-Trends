@@ -51,7 +51,7 @@ section {
     text-align: center;
 }
 
-#boxplot-title, #key-findings ul, #limitations ul, #future-recommendations ul {
+#boxplot-title ul, #key-findings ul, #limitations ul, #future-recommendations ul {
     display: inline-block;
     list-style-type: inside;
     text-align: left;
@@ -65,7 +65,7 @@ section {
 }
 
 
-#lineplot, #ratings_vs_reviews iframe {
+#lineplot iframe, #ratings_vs_reviews iframe {
     width: 120%; 
     max-width: 800px; 
     height: 470px;
