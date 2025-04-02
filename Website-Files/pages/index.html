@@ -272,36 +272,77 @@
     <section id="barplot">
     </section>
 
-    <section id="barplot-description">
-        <h3>Key Points</h3>
-        <ul>
-            <li>In general, as the level of maturity increases,
-                the amount of votes on that level of content is greater.
-                This is the case when we look up until the level R.
-                NC-17 has significantly less votes than the rest of
-                the age ratings due to the age certifications
-                being far less popular than the rest listeed.
-            </li>
-            <li>
-                Average score is pretty consistent across the
-                various age certifications, despite the frerquency of votes
-                all being greatly different.
-            </li>
-            <li>
-                Content rated TV-Y, TV-Y7, TV-G, and G tend to have
-                fewer total votes and slightly lower average scores.
-                This potentially means less IMDb user engagement with
-                content aimed at very young viewers — perhaps due to
-                IMDb’s adult-skewing user base.
-            </li>
-            <li>
-                NC-17 ratings have a small presence in Netflix content.
-                This category appears with low scores and vote counts, indicating
-                it may represent niche or less mainstream content with
-                little access or appeal.
-            </li>
-        </ul>
-    </section>
+    <div class="columns">
+        <div class="column">
+            <div class="row">
+                <section id="barplot-takeaways">
+                    <h3>Takeaways</h3>
+                    <ul>
+                        <li>As the level of maturity increases,
+                            the amount of votes on that level of content is greater.
+                            This is the case until the maturity level R.
+                            NC-17 has significantly less votes than the rest of
+                            the age ratings due to the age certifications
+                            being far less popular than the rest listed.
+                        </li>
+                        <li>
+                            Average score is fairly consistent across the
+                            various age certifications, despite the frequency of votes
+                            all being greatly different.
+                        </li>
+                        <li>
+                            Content rated TV-Y, TV-Y7, TV-G, and G tend to have
+                            fewer total votes and slightly lower average scores.
+                            This potentially means less IMDb user engagement with
+                            content aimed at very young viewers — perhaps due to
+                            IMDb’s adult-skewing user base.
+                        </li>
+                        <li>
+                            NC-17 ratings have a small presence in Netflix content.
+                            This category appears with low scores and vote counts, indicating
+                            it may represent niche or less mainstream content with
+                            little access or appeal.
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <section id="barplot-implications">
+                    <h3>Implications:</h3>
+                    <ul>
+                        <li>
+                            Streaming platforms and production companies should consider the larger engagement seen with 
+                            PG-13, R, and TV-MA rated content when planning releases or marketing strategies. 
+                            These categories clearly resonate more with IMDb’s user base, suggesting adult-oriented 
+                            content garners more interaction and discussion.
+                        </li>
+                        <li>
+                            The lower vote counts for youth-rated content reflect IMDb’s likely adult-leaning user demographic. 
+                            Platforms targeting families or younger audiences may find that IMDb ratings don't fully capture 
+                            engagement from their core viewers and should rely on alternative metrics.
+                        </li>
+                        <li>
+                            The sharp drop-off in votes for NC-17 content suggests a limited audience and potentially reduced discoverability. 
+                            This could impact content placement decisions for media that falls into that rating, especially on mainstream platforms 
+                            like Netflix.
+                        </li>
+                        <li>
+                            Since age ratings correlate with vote volume, developers and researchers should be cautious using IMDb data as a proxy 
+                            for popularity or quality across all age groups. The data may overrepresent certain segments (like adult viewers) 
+                            and underrepresent others (like children or families).
+                        </li>
+                        <li>
+                            While average score may be very similar, the popularity difference across maturity levels 
+                            indicates that we should look further into the individual distributions for each age rating.
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Side by side boxplors Title Section -->
     <section id="agebox-title">
@@ -320,45 +361,61 @@
     </section>
 
     <section id="agebox">
-        <iframe src="../altair/agebox.html" width="800" height="500" style="border:none;"></iframe>
+        <iframe src="../altair/agebox.html" width="800" height="550" style="border:none;"></iframe>
     </section>
-
-    <section id="agebox-description">
-        <h3>TV</h3>
-        <p>
-            The distributions for the boxplots largely overlap with one another.
-            This may indicate that Netflix is generally consistent with the quality of
-            content across various age certifications.
-            Several of the ratings have outliers, but for the ratings 'TV-MA' and 'TV-14',
-            there appear to be many outliers. Additionally, they seem to have whiskers
-            that extend across a spread out range of values compared to other ratings.
-            The 'G' rating appears to have the smallest spread, and is not majorly skewed in either direction.
-        </p>
-        <h3>MOVIE</h3>
-        <p>
-            The boxplots also overlap for the movies, showing pretty similar distributions.
-            However, content levels PG-13 and R appear to have a larger spread relative to
-            lower maturity levels. NC-17 has only one value, indicating that in this dataset,
-            there is probably just one NC-17 film.
-            PG has outliers on both the left and right side of the dsitribution.
-            PG-13 and R have numerous lower outliers.
-        </p>
-        <h3>NEXT STEPS</h3>
-        <p>
-            We can see that the majority of age ratings with outliers appear to be skewed to the left.
-            Thus, when we previously compared their averages in the barplot,
-            these may not be as meaningful than if we compare the medians.
-        </p>
-        <p>
-            We know that Netflix may have strategically utilized more "bingeable" content--often TV shows
-            that are TV-14 and TV-MA.
-            This could be the reasoning behind the larger frequency of votes.
-            In addition, they have many, many lower outliers, yet their average scores
-            still remain the second and third largest out of all the ratings
-            (by less than a tenth). Without outliers, the projected average ratings would be larger--and
-            probably by a significant amount.
-        </p>
-    </section>
+    
+    <div class="columns">
+        <div class="column">
+            <div class="row">
+                <section id="agebox-takeaways">
+                    <h3>Takeaways</h3>
+                    <h4>TV</h4>
+                    <p>
+                        The distributions for the boxplots largely overlap with one another.
+                        This may indicate that Netflix is generally consistent with the quality of
+                        content across various age certifications.
+                        Several of the ratings have outliers, but for the ratings 'TV-MA' and 'TV-14',
+                        there appear to be many outliers. Additionally, they seem to have whiskers
+                        that extend across a spread out range of values compared to other ratings.
+                        The 'G' rating appears to have the smallest spread, and is not majorly skewed in either direction.
+                    </p>
+                    <h4>MOVIE</h4>
+                    <p>
+                        The boxplots also overlap for the movies, showing pretty similar distributions.
+                        However, content levels PG-13 and R appear to have a larger spread relative to
+                        lower maturity levels. NC-17 has only one value, indicating that in this dataset,
+                        there is probably just one NC-17 film.
+                        PG has outliers on both the left and right side of the dsitribution.
+                        PG-13 and R have numerous lower outliers.
+                    </p>
+                </section>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <section id="agebox-implications">
+                    <h3>Implications</h3>
+                    <p>
+                        We can see that the majority of age ratings with outliers appear to be skewed to the left.
+                        The averages across all levels were similar, but the distributions indicate that for the more 
+                        popular categories--the ones that cater to more mature audiences--are possibly more well received 
+                        thought when we saw the initial findings.
+                    </p>
+                    <p>
+                        In addition, they have many, many lower outliers, yet their average scores
+                        still remain the second and third largest out of all the ratings
+                        (by less than a tenth). Without outliers, the projected average ratings would be larger--and
+                        probably by a significant amount.
+                    </p>
+                    <p>
+                        It is known that Netflix has strategically utilized more "bingeable" content--often TV shows
+                        that are TV-14 and TV-MA. Based on the popularity and positive reception of this content, Netflix 
+                        should continue to release more content that users are able to "binge-watch" to keep up with competitors. 
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
 
     <!-- scatterplot Title Section -->
     <section id="scatterplot1-title">
@@ -448,7 +505,7 @@
 <div class="contact">
     <h3>Contact Us</h3>
     <p>Paulina Acosta: acosta.pa@northeastern.edu</p>
-    <p>Alissa Agnelli: contact@northeastern.edu</p>
+    <p>Alissa Agnelli: agnelli.al@northeastern.edu</p>
     <p>Regina Rabkina: rabkina.r@northeastern.edu</p>
 </div>
 
