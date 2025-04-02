@@ -116,7 +116,7 @@ agedata.then(function(data) {
       .attr("x", width / 2)
       .attr("y", height + 40)
       .style("text-anchor", "middle")
-      .text("Average IMDB Score");
+      .text("Average IMDb Score");
 
    // Add y axis label
    svg.append("text")
@@ -132,7 +132,7 @@ agedata.then(function(data) {
       .attr("y", -1)
       .style("text-anchor", "middle")
       .style("font-weight", "bold")
-      .text("Average IMDB Score by Age Rating with Varying Frequency of Votes");
+      .text("Average IMDb Score by Age Rating with Varying Frequency of Votes");
 
    // Add legend for the color
    let legend_height = 10;
@@ -180,5 +180,5 @@ agedata.then(function(data) {
            .attr("y", -10)
            .attr("text-anchor", "middle")
            .style("font-size", "12px")
-           .text("Total IMDB Votes");
+           .text("Total IMDb Votes");
 });

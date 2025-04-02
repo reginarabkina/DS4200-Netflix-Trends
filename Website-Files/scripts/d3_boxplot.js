@@ -110,7 +110,7 @@ function renderBoxPlot() {
             .attr('x', -height / 2)
             .attr('y', -margin.left + 15)
             .style('text-anchor', 'middle')
-            .text('IMDB score');
+            .text('IMDb score');
         
         // Add title
         svg.append("text")
@@ -118,7 +118,7 @@ function renderBoxPlot() {
         .attr("y", -5)
         .style("text-anchor", "middle")
         .style("font-weight", "bold")
-        .text("Distribution of IMDB scores by Media Length Category");
+        .text("Distribution of IMDb scores by Media Length Category");
 
 
         // Add the boxplot elements (min, q1, median, q3, max)
@@ -135,7 +135,7 @@ function renderBoxPlot() {
             .attr('y', d => yScale(d.q3))
             .attr('width', xScale.bandwidth())
             .attr('height', d => yScale(d.q1) - yScale(d.q3))
-            .attr('fill', '#851bb3');
+            .attr('fill', '#247ba0');
 
         // Add the median line
         boxplots.append('line')
@@ -170,7 +170,7 @@ function renderBoxPlot() {
             .attr('cx', xScale.bandwidth() / 2)
             .attr('cy', d => yScale(d.imdb_score))
             .attr('r', 3)
-            .attr('fill', '#3cb58b')
+            .attr('fill', '#fb3640')
             .attr('stroke', 'black')
             .attr('stroke-width', 1);
     }).catch(console.error);
