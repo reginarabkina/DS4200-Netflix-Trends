@@ -56,7 +56,7 @@ agedata.then(function(data) {
    
    let color = d3.scaleSequential()
                  .domain(vote_count)
-                 .interpolator(d3.interpolateViridis);
+                 .interpolator(d3.interpolateRdBu);
 
    // Tool tip
    let tooltip = d3.select("body")
