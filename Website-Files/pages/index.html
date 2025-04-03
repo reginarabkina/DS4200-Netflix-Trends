@@ -16,8 +16,8 @@
 
     <!-- Local script for rendering the barplot -->
     <script defer src="../scripts/d3_barplot.js"></script>
-    
-     <!-- Local script for rendering the scatter -->
+
+    <!-- Local script for rendering the scatter -->
     <script src="../scripts/scatter.js"></script>
 
 </head>
@@ -67,53 +67,53 @@
             Netflix's content offerings during this period.
 
         <div class="table-container">
-        <table id=dataset border="1">
-            <tr>
-                <th>Variable Name</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td><strong>title</strong></td>
-                <td>Name of the movie or TV show</td>
-            </tr>
-            <tr>
-                <td><strong>type</strong></td>
-                <td>Indicates whether the entry is a movie or TV show</td>
-            </tr>
-            <tr>
-                <td><strong>release_year</strong></td>
-                <td>Year the movie or TV show was originally released</td>
-            </tr>
-            <tr>
-                <td><strong>runtime</strong></td>
-                <td>Duration of the movie in minutes or average episode length for TV shows</td>
-            </tr>
-            <tr>
-                <td><strong>imdb_score</strong></td>
-                <td>IMDb rating score (0-10) based on user reviews</td>
-            </tr>
-            <tr>
-                <td><strong>imdb_votes</strong></td>
-                <td>Total number of IMDb votes received for the title</td>
-            </tr>
-            <tr>
-                <td><strong>country</strong></td>
-                <td>Country where the movie or TV show was produced</td>
-            </tr>
-            <tr>
-                <td><strong>date_added</strong></td>
-                <td>Date when the title was added to Netflix </td>
-            </tr>
-            <tr>
-                <td><strong>listed_in</strong></td>
-                <td>Genres or categories associated with the title</td>
-            </tr>
-            <tr>
-                <td><strong>rating</strong></td>
-                <td>Age certification rating (e.g., PG, R, TV-MA)</td>
-            </tr>
-        </table>
-    </div>
+            <table id=dataset border="1">
+                <tr>
+                    <th>Variable Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><strong>title</strong></td>
+                    <td>Name of the movie or TV show</td>
+                </tr>
+                <tr>
+                    <td><strong>type</strong></td>
+                    <td>Indicates whether the entry is a movie or TV show</td>
+                </tr>
+                <tr>
+                    <td><strong>release_year</strong></td>
+                    <td>Year the movie or TV show was originally released</td>
+                </tr>
+                <tr>
+                    <td><strong>runtime</strong></td>
+                    <td>Duration of the movie in minutes or average episode length for TV shows</td>
+                </tr>
+                <tr>
+                    <td><strong>imdb_score</strong></td>
+                    <td>IMDb rating score (0-10) based on user reviews</td>
+                </tr>
+                <tr>
+                    <td><strong>imdb_votes</strong></td>
+                    <td>Total number of IMDb votes received for the title</td>
+                </tr>
+                <tr>
+                    <td><strong>country</strong></td>
+                    <td>Country where the movie or TV show was produced</td>
+                </tr>
+                <tr>
+                    <td><strong>date_added</strong></td>
+                    <td>Date when the title was added to Netflix </td>
+                </tr>
+                <tr>
+                    <td><strong>listed_in</strong></td>
+                    <td>Genres or categories associated with the title</td>
+                </tr>
+                <tr>
+                    <td><strong>rating</strong></td>
+                    <td>Age certification rating (e.g., PG, R, TV-MA)</td>
+                </tr>
+            </table>
+        </div>
     </section>
 
     <section id="transition">
@@ -138,7 +138,7 @@
     </section>
 
     <section id="boxplot">
-       
+
     </section>
 
     <div class="columns">
@@ -204,10 +204,10 @@
     </section>
 
     <div class="lineplot-container">
-    <section id="lineplot">
-        <iframe src="../altair/imdb_score_trends.html" width="800" height="500" style="border:none;"></iframe>
-    </section>
-</div>
+        <section id="lineplot">
+            <iframe src="../altair/imdb_score_trends.html" width="800" height="500" style="border:none;"></iframe>
+        </section>
+    </div>
 
     <div class="columns">
         <div class="column">
@@ -313,28 +313,34 @@
                     <h3>Implications:</h3>
                     <ul>
                         <li>
-                            Streaming platforms and production companies should consider the larger engagement seen with 
-                            PG-13, R, and TV-MA rated content when planning releases or marketing strategies. 
-                            These categories clearly resonate more with IMDb’s user base, suggesting adult-oriented 
+                            Streaming platforms and production companies should consider the larger engagement seen with
+                            PG-13, R, and TV-MA rated content when planning releases or marketing strategies.
+                            These categories clearly resonate more with IMDb’s user base, suggesting adult-oriented
                             content garners more interaction and discussion.
                         </li>
                         <li>
-                            The lower vote counts for youth-rated content reflect IMDb’s likely adult-leaning user demographic. 
-                            Platforms targeting families or younger audiences may find that IMDb ratings don't fully capture 
+                            The lower vote counts for youth-rated content reflect IMDb’s likely adult-leaning user
+                            demographic.
+                            Platforms targeting families or younger audiences may find that IMDb ratings don't fully
+                            capture
                             engagement from their core viewers and should rely on alternative metrics.
                         </li>
                         <li>
-                            The sharp drop-off in votes for NC-17 content suggests a limited audience and potentially reduced discoverability. 
-                            This could impact content placement decisions for media that falls into that rating, especially on mainstream platforms 
+                            The sharp drop-off in votes for NC-17 content suggests a limited audience and potentially
+                            reduced discoverability.
+                            This could impact content placement decisions for media that falls into that rating,
+                            especially on mainstream platforms
                             like Netflix.
                         </li>
                         <li>
-                            Since age ratings correlate with vote volume, developers and researchers should be cautious using IMDb data as a proxy 
-                            for popularity or quality across all age groups. The data may overrepresent certain segments (like adult viewers) 
+                            Since age ratings correlate with vote volume, developers and researchers should be cautious
+                            using IMDb data as a proxy
+                            for popularity or quality across all age groups. The data may overrepresent certain segments
+                            (like adult viewers)
                             and underrepresent others (like children or families).
                         </li>
                         <li>
-                            While average score may be very similar, the popularity difference across maturity levels 
+                            While average score may be very similar, the popularity difference across maturity levels
                             indicates that we should look further into the individual distributions for each age rating.
                         </li>
                     </ul>
@@ -344,7 +350,7 @@
     </div>
 
 
-    
+
     <section id="agebox-title">
         <h2>IMDb Score Distribution by Age Rating</h2>
         <p>Next, to get a better picture in case of skewed distributions for each age rating,
@@ -363,7 +369,7 @@
     <section id="agebox">
         <iframe src="../altair/agebox.html" width="800" height="550" style="border:none;"></iframe>
     </section>
-    
+
     <div class="columns">
         <div class="column">
             <div class="row">
@@ -377,7 +383,8 @@
                         Several of the ratings have outliers, but for the ratings 'TV-MA' and 'TV-14',
                         there appear to be many outliers. Additionally, they seem to have whiskers
                         that extend across a spread out range of values compared to other ratings.
-                        The 'G' rating appears to have the smallest spread, and is not majorly skewed in either direction.
+                        The 'G' rating appears to have the smallest spread, and is not majorly skewed in either
+                        direction.
                     </p>
                     <h4>MOVIE</h4>
                     <p>
@@ -397,8 +404,9 @@
                     <h3>Implications</h3>
                     <p>
                         We can see that the majority of age ratings with outliers appear to be skewed to the left.
-                        The averages across all levels were similar, but the distributions indicate that for the more 
-                        popular categories--the ones that cater to more mature audiences--are possibly more well received 
+                        The averages across all levels were similar, but the distributions indicate that for the more
+                        popular categories--the ones that cater to more mature audiences--are possibly more well
+                        received
                         thought when we saw the initial findings.
                     </p>
                     <p>
@@ -409,15 +417,17 @@
                     </p>
                     <p>
                         It is known that Netflix has strategically utilized more "bingeable" content--often TV shows
-                        that are TV-14 and TV-MA. Based on the popularity and positive reception of this content, Netflix 
-                        should continue to release more content that users are able to "binge-watch" to keep up with competitors. 
+                        that are TV-14 and TV-MA. Based on the popularity and positive reception of this content,
+                        Netflix
+                        should continue to release more content that users are able to "binge-watch" to keep up with
+                        competitors.
                     </p>
                 </section>
             </div>
         </div>
     </div>
 
-    
+
     <section id="scatterplot1-title">
         <h2>IMDb Ratings vs Number of Reviews</h2>
     </section>
@@ -426,111 +436,164 @@
         <iframe src="../altair/imdb_ratings_vs_reviews.html" width="800" height="500" style="border:none;"></iframe>
     </section>
 
-    <section id="scatterplot1-description">
-        <h3>Takeaways:</h3>
-        <p>
-            The scatterplot reveals a potential relationship between the IMDb rating and the number of reviews (votes) a
-            movie or TV show has received. <br>
-        </p>
-        <p>
-            High IMDb Scores with High Reviews: Movies and TV shows with higher ratings often tend to have a larger
-            number of reviews, especially if they are well-known or widely appreciated by the audience.
-            This indicates that the most popular and highly rated content tends to accumulate more reviews over time.
-            <br>
-        </p>
+    <div class="columns">
+        <div class="column">
+            <div class="row">
+                <section id="scatterplot1-description">
+                    <h3>Takeaways:</h3>
+                    <p>
+                        The scatterplot reveals a potential relationship between the IMDb rating and the number of
+                        reviews (votes) a movie or TV show has received. <br>
+                    </p>
+                    <p>
+                        Movies and TV shows with higher ratings often tend to have a
+                        larger number of reviews, especially if they are well-known or widely appreciated by the audience.
+                        This indicates that the most popular and highly rated content tends to accumulate more reviews
+                        over time.
+                        <br>
+                    </p>
+                    <p>
+                        There may be some content with high IMDb ratings but fewer
+                        reviews, possibly indicating niche content, older movies, or shows that were well-received by a smaller
+                        audience.
+                        <br>
+                    </p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <h3>Implications:</h3>
+                <p>
+                    A higher number of reviews might correlate with greater audience
+                    engagement. Content that generates more reviews could indicate that it is widely discussed,
+                    analyzed, or critiqued, suggesting it is popular or has a passionate fanbase.
+                </p>
+                <p>
+                    Studios and content creators could use this data to assess the level of engagement with their
+                    content. For example, if a film or series has a high rating but low votes, it may indicate that
+                    while the content is well-received, it has not reached a large audience or lacks the viral quality
+                    that drives more people to review it.
+                </p>
+                </section>
+            </div>
+        </div>
+    </div>
 
-        <p>
-            Lower Reviews with Higher Scores: There may be some content with high IMDb ratings but fewer reviews,
-            possibly indicating niche content, older movies, or shows that were well-received by a smaller audience.
-            <br>
-        </p>
-        <h3>Implications</h3>
-        <p>
-            Audience Engagement and Popularity: A higher number of reviews might correlate with greater audience
-            engagement. Content that generates more reviews could indicate that it is widely discussed, analyzed, or
-            critiqued,
-            suggesting it is popular or has a passionate fanbase.
-        </p>
-        <p>
-            Studios and content creators could use this data to assess the level of engagement with their content. For
-            example, if a film or series has a high rating but low votes, it may indicate that
-            while the content is well-received, it has not reached a large audience or lacks the viral quality that
-            drives more people to review it.
-        </p>
+    <section id="scatterplot2-title">
+        <h2>Number of Releases vs. Average IMDB Ratings</h2>
+    </section>
+
+    <div id="scatter"></div>
+
+    <div class="columns">
+        <div class="column">
+            <div class="row">
+                <section id="scatterplot2-description">
+                    <h3>Takeaways:</h3>
+                    <p>
+                        The scatter plot reveals how the average IMDb ratings of movies and TV shows have fluctuated
+                        over the years.
+                        A noticeable trend (either upward or downward) could indicate shifts in audience preferences or
+                        changes in
+                        production quality.<br>
+                    </p>
+                    <p>
+                        The size of the circles represents the number of releases each year.
+                        If certain years have significantly larger circles, it suggests peak periods in content
+                        production, possibly
+                        influenced by factors like streaming platform expansions or major industry shifts.
+                        <br>
+                    </p>
+                    <p>
+                        Outliers in the dataset (e.g., a year with an unusually high or low average rating) may signal
+                        significant
+                        events such as the rise of a particular genre, the influence of a major franchise, or changes in
+                        industry
+                        standards.
+                        <br>
+                    </p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <h3>Implications:</h3>
+                <p>
+                    Platforms like Netflix, Hulu, or HBO Max could use this data to assess past trends and determine
+                    optimal
+                    content release strategies.
+                    If TV shows have consistently higher ratings than movies in certain periods, they might prioritize
+                    show
+                    production.
+                </p>
+                <p>
+                    Major shifts (e.g., the rise of streaming services, global events like the pandemic, or
+                    technological
+                    advancements) can be analyzed in correlation with the data, providing insights into how external
+                    factors
+                    influence entertainment consumption.
+                </p>
+            </div>
+        </div>
+    </div>
 
     </section>
 
-<section id="scatterplot2-title">
-    <h2>Number of Releases vs. Average IMDB Ratings</h2>
-</section>
+    <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>The analysis of IMDb ratings across various factors, including media length, Netflix's content strategy,
+            maturity levels, and audience engagement, has revealed several valuable insights.</p>
+    </section>
 
-<div id="scatter"></div>
+    <section id="key-findings">
+        <h3>Key Findings</h3>
+        <ul>
+            <li>Media Length and Ratings: Runtime alone is not a strong predictor of audience reception. Short films
+                have a broader range of ratings, making them riskier investments, while longer films generally receive
+                more consistent scores.</li>
+            <li>Netflix’s Content Strategy: Netflix has shifted from acquiring highly rated content to balancing
+                quantity and quality, with original programming becoming a key driver of success.</li>
+            <li>Maturity Ratings and Audience Engagement: PG-13, R, and TV-MA content receive the most IMDb votes, while
+                youth-oriented and NC-17 content tend to see lower engagement, possibly due to IMDb’s adult-skewed user
+                base.</li>
+            <li>Ratings and Review Volume: Highly rated content often garners more reviews, whereas some niche content
+                may receive high ratings but have limited audience reach.</li>
+            <li>Trends Over Time: IMDb rating fluctuations reflect industry shifts, streaming expansion, and changing
+                audience preferences. The number of releases per year aligns with platform growth and major
+                entertainment trends.</li>
+        </ul>
+    </section>
 
-<section id="scatterplot2-description">
-    <h3>Takeaways:</h3>
-    <p>
-        The scatter plot reveals how the average IMDb ratings of movies and TV shows have fluctuated over the years. 
-        A noticeable trend (either upward or downward) could indicate shifts in audience preferences or changes in production quality.<br>
-    </p>
-    <p>
-        The size of the circles represents the number of releases each year. 
-        If certain years have significantly larger circles, it suggests peak periods in content production, possibly influenced by factors like streaming platform expansions or major industry shifts.
-        <br>
-    </p>
-    <p>
-        Outliers in the dataset (e.g., a year with an unusually high or low average rating) may signal significant events such as the rise of a particular genre, the influence of a major franchise, or changes in industry standards.
-        <br>
-    </p>
-    <h3>Implications</h3>
-    <p>
-        Platforms like Netflix, Hulu, or HBO Max could use this data to assess past trends and determine optimal content release strategies. 
-        If TV shows have consistently higher ratings than movies in certain periods, they might prioritize show production.
-    </p>
-    <p>
-        Major shifts (e.g., the rise of streaming services, global events like the pandemic, or technological advancements) can be analyzed in correlation with the data, providing insights into how external factors influence entertainment consumption.
-    </p>
+    <section id="limitations">
+        <h3>Limitations</h3>
+        <ul>
+            <li>IMDb’s user base may not fully represent all audiences, especially for family-friendly or niche content.
+            </li>
+            <li>Regional differences are not accounted for, which could influence rating trends based on cultural
+                preferences.</li>
+            <li>Correlation does not imply causation—high ratings do not necessarily lead to high engagement and vice
+                versa.</li>
+            <li>Additional quality metrics, such as audience retention and social media engagement, are not considered.
+            </li>
+        </ul>
+    </section>
 
-</section>
+    <section id="future-recommendations">
+        <h3>Future Recommendations</h3>
+        <ul>
+            <li>Streaming platforms should balance quality and quantity by leveraging data-driven insights.</li>
+            <li>High-rated but low-review content presents an opportunity for targeted marketing to increase awareness
+                and engagement.</li>
+            <li>Future analyses could incorporate additional engagement metrics, such as watch time and review
+                sentiment, for a more comprehensive understanding.</li>
+            <li>Segmenting ratings by geographic region could help tailor content strategies for diverse audiences.</li>
+            <li>Continuous monitoring of industry trends and audience behaviors is crucial for adapting to technological
+                advancements in the entertainment landscape.</li>
+        </ul>
 
-<section id="conclusion">
-    <h2>Conclusion</h2>
-    <p>The analysis of IMDb ratings across various factors, including media length, Netflix's content strategy, maturity levels, and audience engagement, has revealed several valuable insights.</p>
-</section>
+        <p>By leveraging these insights, content creators and streaming platforms can optimize their strategies to
+            sustain long-term success and maximize audience engagement.</p>
 
-<section id="key-findings">
-    <h3>Key Findings</h3>
-    <ul>
-        <li>Media Length and Ratings: Runtime alone is not a strong predictor of audience reception. Short films have a broader range of ratings, making them riskier investments, while longer films generally receive more consistent scores.</li>
-        <li>Netflix’s Content Strategy: Netflix has shifted from acquiring highly rated content to balancing quantity and quality, with original programming becoming a key driver of success.</li>
-        <li>Maturity Ratings and Audience Engagement: PG-13, R, and TV-MA content receive the most IMDb votes, while youth-oriented and NC-17 content tend to see lower engagement, possibly due to IMDb’s adult-skewed user base.</li>
-        <li>Ratings and Review Volume: Highly rated content often garners more reviews, whereas some niche content may receive high ratings but have limited audience reach.</li>
-        <li>Trends Over Time: IMDb rating fluctuations reflect industry shifts, streaming expansion, and changing audience preferences. The number of releases per year aligns with platform growth and major entertainment trends.</li>
-    </ul>
-</section>
-
-<section id="limitations">
-    <h3>Limitations</h3>
-    <ul>
-        <li>IMDb’s user base may not fully represent all audiences, especially for family-friendly or niche content.</li>
-        <li>Regional differences are not accounted for, which could influence rating trends based on cultural preferences.</li>
-        <li>Correlation does not imply causation—high ratings do not necessarily lead to high engagement and vice versa.</li>
-        <li>Additional quality metrics, such as audience retention and social media engagement, are not considered.</li>
-    </ul>
-  </section>
-  
-  <section id="future-recommendations">
-    <h3>Future Recommendations</h3>
-    <ul>
-        <li>Streaming platforms should balance quality and quantity by leveraging data-driven insights.</li>
-        <li>High-rated but low-review content presents an opportunity for targeted marketing to increase awareness and engagement.</li>
-        <li>Future analyses could incorporate additional engagement metrics, such as watch time and review sentiment, for a more comprehensive understanding.</li>
-        <li>Segmenting ratings by geographic region could help tailor content strategies for diverse audiences.</li>
-        <li>Continuous monitoring of industry trends and audience behaviors is crucial for adapting to technological advancements in the entertainment landscape.</li>
-    </ul>
-    
-    <p>By leveraging these insights, content creators and streaming platforms can optimize their strategies to sustain long-term success and maximize audience engagement.</p>
-
-  </section>
+    </section>
 
 </body>
 
