@@ -1,5 +1,5 @@
 // Load the data
-const agedata = d3.csv("../datasets/age_data.csv");
+const agedata = d3.csv("age_data.csv");
 
 // Once the data is loaded, create the bar plot
 agedata.then(function(data) {

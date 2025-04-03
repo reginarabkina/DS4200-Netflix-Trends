@@ -1,4 +1,4 @@
-d3.json("../datasets/merged_data.json").then(function(data) {
+d3.json("merged_data.json").then(function(data) {
     // Process data
     let groupedData = d3.rollups(
         data,

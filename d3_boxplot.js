@@ -18,7 +18,7 @@ function getLengthCategory(runtime) {
 
 // Function to render the BoxPlot and calculate medians & distributions
 function renderBoxPlot() {
-    loadJSONData('../datasets/merged_data.json').then(data => {
+    loadJSONData('merged_data.json').then(data => {
         if (!data[0] || !data[0].runtime || !data[0].imdb_score) {
             console.error('Dataset does not have required columns: "runtime" and "imdb_score"');
             return;
