@@ -6,11 +6,7 @@ function loadJSONData(url) {
 
 // Function to determine if content is a movie or show
 function getContentType(item) {
-    // Log a few items to debug
-    if (Math.random() < 0.01) { // Log only 1% of items to avoid console spam
-        console.log("Sample item for type detection:", item);
-    }
-    
+  
     // More robust check that accounts for different data structures
     // This function explicitly returns either "Movie" or "TV Show"
     
@@ -32,11 +28,7 @@ function getContentType(item) {
     if (item.seasons || item.episodes || item.episode_count) {
         return 'TV Show';
     }
-    
-    // For this example, let's ensure we have data for both categories
-    // by artificially assigning half the data to each category
-    // Remove this in production and implement proper detection
-    return Math.random() < 0.5 ? 'Movie' : 'TV Show';
+   
 }
 
 // Function to categorize runtime into 'Short', 'Medium', 'Long'
@@ -45,7 +37,6 @@ function getLengthCategory(runtime) {
     if (isNaN(runtimeValue)) {
         return 'Medium'; // Default if runtime is not a number
     }
-    
     if (runtimeValue <= 90) {
         return 'Short';
     } else if (runtimeValue <= 150) {
@@ -85,7 +76,7 @@ function setupVisualization(data) {
         d.combined_category = `${d.content_type}-${d.length_category}`;
     });
     
-    // Set up SVG canvas dimensions - INCREASED THE BOTTOM MARGIN FOR X-AXIS TITLE
+    // Set up SVG canvas dimensions 
     margin = { top: 40, right: 40, bottom: 80, left: 60 };
     width = 800 - margin.left - margin.right;
     height = 450 - margin.top - margin.bottom;
@@ -124,13 +115,13 @@ function setupVisualization(data) {
         .style("text-anchor", "middle")
         .style("font-weight", "bold");
 
-    // Add the Y axis (will update with data)
+    // Add the Y axis 
     svg.append('g')
         .attr('class', 'y-axis');
 
-    // Add axis labels - MOVED X AXIS LABEL FURTHER DOWN
+    // Add axis labels
     svg.append('text')
-        .attr('transform', `translate(${width / 2}, ${height + margin.bottom - 20})`)
+        .attr('transform', `translate(${width / 2}, ${height + margin.bottom - 8})`)
         .style('text-anchor', 'middle')
         .style('font-weight', 'bold')
         .text('Content Type');
@@ -446,7 +437,6 @@ function updateVisualization(filter) {
             .attr('r', 3);
             
         // Add length category labels inside each content type group
-        // MOVED THESE LABELS DOWN TO AVOID OVERLAP WITH X-AXIS LABELS
         group.selectAll('.length-label')
             .data(['Short', 'Medium', 'Long'])
             .enter()
