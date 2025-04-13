@@ -298,75 +298,15 @@
         </div>
     </div>
 
-    <section id="agebox-title">
-        <h3>IMDb Score Distribution by Age Rating</h3>
-        <p>Next, to get a better picture in case of skewed distributions for each age rating, we will use a side-by-side
-            boxplot showing the distributions for the levels. The figure shows side-by-side boxplots for Netflix movies
-            and shows. Each boxplot represents one of the age categories/rating. For each of these age ratings, the
-            boxplot shows the distribution of the IMDb scores for content in that certain age group. Use the drop-down
-            below the chart to select age ratings for TV or Movie. Hover over the boxes to see the metrics.</p>
-    </section>
-
-    <section id="agebox">
-        <iframe src="agebox.html" width="800" height="550" style="border:none;" class="visualization"></iframe>
-    </section>
-
-    <div class="columns">
-        <div class="column">
-            <div class="row">
-                <section id="agebox-takeaways">
-                    <h3>Takeaways:</h3>
-                    <h4>TV Shows</h4>
-                    <p>The distributions for the boxplots largely overlap with one another. This may indicate that
-                        Netflix is generally consistent with the quality of content across various age certifications.
-                        Several of the ratings have outliers, but for the ratings 'TV-MA' and 'TV-14', there appear to
-                        be many outliers. Additionally, they seem to have whiskers that extend across a spread out range
-                        of values compared to other ratings. The 'G' rating appears to have the smallest spread, and is
-                        not majorly skewed in either direction.</p>
-
-                    <h4>Movies</h4>
-                    <p>The boxplots also overlap for the movies, showing pretty similar distributions. However, content
-                        levels PG-13 and R appear to have a larger spread relative to lower maturity levels. NC-17 has
-                        only one value, indicating that in this dataset, there is probably just one NC-17 film. PG has
-                        outliers on both the left and right side of the distribution. PG-13 and R have numerous lower
-                        outliers.</p>
-                </section>
-            </div>
-        </div>
-        <div class="column">
-            <div class="row">
-                <section id="agebox-implications">
-                    <h3>Implications:</h3>
-                    <p>We can see that the majority of age ratings with outliers appear to be skewed to the left. The
-                        averages across all levels were similar, but the distributions indicate that for the more
-                        popular categories—the ones that cater to more mature audiences—are possibly more well received,
-                        as we saw in the initial findings.</p>
-                    <p>In addition, they have more instances of positive feedback and less flat-out rejection. Mature
-                        categories may correlate to greater success on Netflix’s platform, pointing to an opportunity to
-                        continue producing a high proportion of R-rated or TV-MA content.</p>
-                    <p>Lastly, we can see that age ratings for younger audiences tend to have smaller variability. This
-                        is likely because these titles are already standardized and likely to have wider family
-                        viewership. It might make sense to increase focus on maximizing the quality of content with
-                        family-oriented age ratings, which are typically less likely to have major outliers.</p>
-                </section>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Audience Engagement and Popularity -->
- <div class="subsection">
-    <h2>Audience Engagement and Popularity</h2>
-    <p>In this section, we will analyze the relationship between IMDb scores and audience engagement metrics,
-        specifically focusing on the number of votes received. This analysis will help us understand how different
-        content types resonate with viewers and how age ratings impact audience engagement.</p>
-    </div>
     <section id="barplot-title">
         <h3>Average IMDb Score by Age Rating</h3>
         <p>The aim of this section of our analysis is to gain insight into the relationship between the age rating on
             content and viewer engagement. The figure is a horizontal bar chart with color encoding. Each bar represents
             the average IMDb score of titles within a specific age rating, while the bar color reflects the total number
-            of votes received — one possible measure of popularity. Hover over the bars to see the metrics.</p>
+            of votes received — one possible measure of popularity. Hover over the bars to see the average score
+            and number of votes for each of the different age categories.</p>
     </section>
 
     <section id="barplot">
@@ -410,6 +350,61 @@
                         certain segments (like adult viewers) and underrepresent others (like children or families).</p>
                     <p>While average score may be very similar, the popularity difference across maturity levels
                         indicates that we should look further into the individual distributions for each age rating.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <section id="agebox-title">
+        <h3>IMDb Score Distribution by Age Rating</h3>
+        <p>Next, to get a better picture in case of skewed distributions for each age rating, we will use a side-by-side
+            boxplot showing the distributions for the levels. The figure shows side-by-side boxplots for Netflix movies
+            and shows. Each boxplot represents one of the age categories/rating. For each of these age ratings, the
+            boxplot shows the distribution of the IMDb scores for content in that certain age group. Use the drop-down
+            below the chart to select age ratings for TV or Movie. Hover over any of the\ box plots to see the quartile metrics.</p>
+    </section>
+
+    <section id="agebox">
+        <iframe src="agebox.html" width="800" height="550" style="border:none;" class="visualization"></iframe>
+    </section>
+
+    <div class="columns">
+        <div class="column">
+            <div class="row">
+                <section id="agebox-takeaways">
+                    <h3>Takeaways:</h3>
+                    <h4>TV Shows</h4>
+                    <p>The distributions for the boxplots largely overlap with one another. This may indicate that
+                        Netflix is generally consistent with the quality of content across various age certifications.
+                        Several of the ratings have outliers, but for the ratings 'TV-MA' and 'TV-14', there appear to
+                        be many outliers. Additionally, they seem to have whiskers that extend across a spread out range
+                        of values compared to other ratings. The 'G' rating appears to have the smallest spread, and is
+                        not majorly skewed in either direction.</p>
+
+                    <h4>Movies</h4>
+                    <p>The boxplots also overlap for the movies, showing pretty similar distributions. However, content
+                        levels PG-13 and R appear to have a larger spread relative to lower maturity levels. NC-17 has
+                        only one value, indicating that in this dataset, there is probably just one NC-17 film. PG has
+                        outliers on both the left and right side of the distribution. PG-13 and R have numerous lower
+                        outliers.</p>
+                </section>
+            </div>
+        </div>
+        <div class="column">
+            <div class="row">
+                <section id="agebox-implications">
+                    <h3>Implications:</h3>
+                    <p>We can see that the majority of age ratings with outliers appear to be skewed to the left. The
+                        averages across all levels were similar, but the distributions indicate that for the more
+                        popular categories—the ones that cater to more mature audiences—are possibly more well received,
+                        as we saw in the initial findings.</p>
+                    <p>In addition, they have more instances of positive feedback and less flat-out rejection. Mature
+                        categories may correlate to greater success on Netflix’s platform, pointing to an opportunity to
+                        continue producing a high proportion of R-rated or TV-MA content.</p>
+                    <p>Lastly, we can see that age ratings for younger audiences tend to have smaller variability. This
+                        is likely because these titles are already standardized and likely to have wider family
+                        viewership. It might make sense to increase focus on maximizing the quality of content with
+                        family-oriented age ratings, which are typically less likely to have major outliers.</p>
                 </section>
             </div>
         </div>
