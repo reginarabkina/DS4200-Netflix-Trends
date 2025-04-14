@@ -1,32 +1,53 @@
 d3.json("merged_data.json").then(function(data) {
-    const width = 900,
-        height = 500,
-        margin = { top: 50, right: 180, bottom: 80, left: 60 };
+    // Process data
+    let groupedData = d3.rollups(
+        data,
+        v => ({
+            num_releases: v.length,
+            avg_rating: d3.mean(v, d => +d.imdb_score)
+        }),
+        d => d.release_year,
+        d => d.type
+    );
+    let processedData = [];
+    groupedData.forEach(([year, types]) => {
+        types.forEach(([type, values]) => {
+            processedData.push({
+                release_year: year,
+                type: type,
+                num_releases: values.num_releases,
+                avg_rating: values.avg_rating
+            });
+        });
+    });
 
-    const types = ["MOVIE", "SHOW"];
+    // Set up dimensions
+    const width = 900, height = 500, margin = { top: 50, right: 180, bottom: 80, left: 60 };
 
+    // Create scales
     const xScale = d3.scaleBand()
-        .domain(data.map(d => d.release_year))
+        .domain(processedData.map(d => String(d.release_year)))
         .range([margin.left, width - margin.right])
         .padding(0.1);
 
-    const yExtent = d3.extent(data, d => d.avg_rating);
     const yScale = d3.scaleLinear()
-        .domain([yExtent[0] - 0.5, yExtent[1] + 0.5])
+        .domain([d3.min(processedData, d => d.avg_rating) - 0.5, d3.max(processedData, d => d.avg_rating) + 0.5])
         .range([height - margin.bottom, margin.top]);
 
     const sizeScale = d3.scaleSqrt()
-        .domain([0, d3.max(data, d => d.num_releases)])
-        .range([10, 30]);
+        .domain([0, 300]) 
+        .range([2, 30]);
 
     const colorScale = d3.scaleOrdinal()
-        .domain(types)
+        .domain(["MOVIE", "SHOW"])
         .range(["blue", "red"]);
 
+    // Create SVG container
     const svg = d3.select("#scatter").append("svg")
         .attr("width", width)
         .attr("height", height);
 
+    // Add circles
     const tooltip = d3.select("body").append("div")
         .style("position", "absolute")
         .style("background", "lightgray")
@@ -35,10 +56,9 @@ d3.json("merged_data.json").then(function(data) {
         .style("display", "none");
 
     svg.selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("cx", d => xScale(d.release_year) + xScale.bandwidth() / 2)
+        .data(processedData)
+        .enter().append("circle")
+        .attr("cx", d => xScale(String(d.release_year)) + xScale.bandwidth() / 2)
         .attr("cy", d => yScale(d.avg_rating))
         .attr("r", d => sizeScale(d.num_releases))
         .attr("fill", d => colorScale(d.type))
@@ -54,19 +74,29 @@ d3.json("merged_data.json").then(function(data) {
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY - 20) + "px");
         })
-        .on("mouseout", () => tooltip.style("display", "none"));
+        .on("mouseout", function() {
+            tooltip.style("display", "none");
+        });
 
-    // Axes
-    svg.append("g")
-        .attr("transform", `translate(0,${height - margin.bottom})`)
-        .call(d3.axisBottom(xScale).tickValues(xScale.domain().filter((d, i) => i % 5 === 0)))
-        .selectAll("text")
-        .attr("transform", "rotate(-30)")
-        .style("text-anchor", "end");
+    // Add axes
+    const xAxis = d3.axisBottom(xScale)
+    .tickValues(processedData.map(d => String(d.release_year)).filter((d, i) => i % 5 === 0)) // Show every 5th year
+    .tickFormat(d => d);
+
+svg.append("g")
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(xAxis)
+    .selectAll("text")
+    .attr("transform", "rotate(-30)") // Slightly angled for better readability
+    .style("text-anchor", "end")
+    .style("font-size", "12px");
+
+    const yAxis = d3.axisLeft(yScale);
+
 
     svg.append("g")
         .attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft(yScale));
+        .call(yAxis);
 
     // Axis labels
     svg.append("text")
@@ -79,12 +109,12 @@ d3.json("merged_data.json").then(function(data) {
     svg.append("text")
         .attr("x", -height / 2)
         .attr("y", 15)
-        .attr("transform", "rotate(-90)")
         .attr("text-anchor", "middle")
+        .attr("transform", "rotate(-90)")
         .style("font-size", "14px")
         .text("Average IMDb Rating");
 
-    // Title
+    // Chart title
     svg.append("text")
         .attr("x", width / 2)
         .attr("y", margin.top / 2)
@@ -93,30 +123,53 @@ d3.json("merged_data.json").then(function(data) {
         .style("font-weight", "bold")
         .text("Number of Releases vs. Average Rating by Year (Movies & TV Shows)");
 
-    // REGRESSION LINES
-    types.forEach(type => {
-        const typeData = data
-            .filter(d => d.type === type)
-            .map(d => [parseInt(d.release_year), d.avg_rating])
-            .sort((a, b) => a[0] - b[0]);
+    // ** LEGEND **
 
-        const result = regression.linear(typeData);
+    const legend = svg.append("g")
+        .attr("transform", `translate(${width - 140}, ${margin.top})`);
 
-        const lineData = typeData.map(d => ({
-            release_year: d[0],
-            predicted: result.predict(d[0])[1]
-        }));
+    // Color legend
+    const types = ["MOVIE", "SHOW"];
+    types.forEach((type, i) => {
+        legend.append("circle")
+            .attr("cx", 10)
+            .attr("cy", i * 25)
+            .attr("r", 8)
+            .attr("fill", colorScale(type));
 
-        const line = d3.line()
-            .x(d => xScale(d.release_year) + xScale.bandwidth() / 2)
-            .y(d => yScale(d.predicted));
+        legend.append("text")
+            .attr("x", 25)
+            .attr("y", i * 25 + 5)
+            .style("font-size", "12px")
+            .text(type);
+    });
 
-        svg.append("path")
-            .datum(lineData)
-            .attr("fill", "none")
-            .attr("stroke", colorScale(type))
-            .attr("stroke-width", 3)
-            .attr("opacity", 0.5)
-            .attr("d", line);
+    // Size legend
+    const sizeLegendValues = [0, 50, 100, 150, 200, 250, 300]; 
+    const sizeLegendSpacing = 30;
+
+    const sizeLegend = svg.append("g")
+        .attr("transform", `translate(${width - 140}, ${margin.top + 60})`);
+
+    sizeLegend.append("text")
+        .attr("x", 0)
+        .attr("y", -10)
+        .style("font-size", "14px")
+        .style("font-weight", "bold")
+        .text("Releases");
+
+    sizeLegendValues.forEach((value, i) => {
+        sizeLegend.append("circle")
+            .attr("cx", 10)
+            .attr("cy", i * sizeLegendSpacing)
+            .attr("r", sizeScale(value))
+            .attr("fill", "gray")
+            .attr("opacity", 0.5);
+
+        sizeLegend.append("text")
+            .attr("x", 40)
+            .attr("y", i * sizeLegendSpacing + 5)
+            .style("font-size", "12px")
+            .text(value);
     });
 });
